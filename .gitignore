@@ -6,3 +6,12 @@
 /CrossOverAssignment/obj/Debug
 /StockExchangeService/obj
 /StockExchangeService/bin
+/packages
+/CrossOverAssignment.DAL/obj
+/CrossOverAssignment.DAL/bin
+/CrossOverAssignment.Security/obj
+/CrossOverAssignment.Security/bin
+/CrossOverAssignment.Business/obj
+/CrossOverAssignment.Business/bin
+/packages
+/CrossOverAssignment/App_Data

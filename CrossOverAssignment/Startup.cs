@@ -1,4 +1,6 @@
-﻿using Microsoft.Owin;
+﻿using CrossOverAssignment.Security;
+using CrossOverAssignment.Security.Identity;
+using Microsoft.Owin;
 using Owin;
 
 [assembly: OwinStartupAttribute(typeof(CrossOverAssignment.Startup))]
@@ -8,7 +10,8 @@ namespace CrossOverAssignment
     {
         public void Configuration(IAppBuilder app)
         {
-            ConfigureAuth(app);
+           
+            AuthConfig.ConfigureAuth(app);
         }
     }
 }
