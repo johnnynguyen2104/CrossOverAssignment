@@ -13,33 +13,29 @@ namespace CrossOverAssignment.DAL.Implementations
     {
         public IDbContext DbContext { get; set; }
 
-        public IQueryable<TEntity> Find(Expression<Func<TEntity, bool>> expression)
+        public IQueryable<TEntity> Read(Expression<Func<TEntity, bool>> expression)
         {
             var result = DbContext.Set<TKey, TEntity>().Where(expression);
 
             return result;
         }
 
-        public TEntity FindOne(Expression<Func<TEntity, bool>> expression)
+        public TEntity ReadOne(Expression<Func<TEntity, bool>> expression)
         {
             var entity = DbContext.Set<TKey, TEntity>().FirstOrDefault(expression);
 
             return entity;
         }
 
-        public int Create(TEntity entity)
+        public TEntity Create(TEntity entity)
         {
-            DbContext.Set<TKey, TEntity>().Add(entity);
-
-            return DbContext.CommitChanges();
+            return DbContext.Set<TKey, TEntity>().Add(entity);
         }
 
-        public int Update(TEntity entity)
+        public void Update(TEntity entity)
         {
-            var updateEntity = FindOne(a => a.Id.Equals(entity.Id));
+            var updateEntity = ReadOne(a => a.Id.Equals(entity.Id));
             DbContext.Entry<TKey, TEntity>(updateEntity).CurrentValues.SetValues(entity);
-
-            return DbContext.CommitChanges();
         }
 
         public int Delete(Expression<Func<TEntity, bool>> expression)
@@ -51,6 +47,11 @@ namespace CrossOverAssignment.DAL.Implementations
                 DbContext.Set<TKey, TEntity>().Remove(entity);
             }
 
+            return DbContext.CommitChanges();
+        }
+
+        public int CommitChanges()
+        {
             return DbContext.CommitChanges();
         }
     }
