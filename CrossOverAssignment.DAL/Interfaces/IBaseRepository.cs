@@ -11,10 +11,6 @@ namespace CrossOverAssignment.DAL.Interfaces
 {
     public interface IBaseRepository<TKey, TEntity> where TEntity : BaseEntity<TKey> where TKey : struct
     {
-        /// <summary>
-        /// Abstraction of dbcontext
-        /// </summary>
-        IDbContext DbContext { get; set; }
 
         /// <summary>
         /// Returning list of entities base on expression

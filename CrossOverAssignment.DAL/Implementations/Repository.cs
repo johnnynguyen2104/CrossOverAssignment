@@ -11,7 +11,17 @@ namespace CrossOverAssignment.DAL.Implementations
 {
     public class Repository<TKey, TEntity> : IBaseRepository<TKey, TEntity> where TEntity : BaseEntity<TKey> where TKey : struct
     {
-        public IDbContext DbContext { get; set; }
+        private IDbContext DbContext { get; set; }
+
+        public Repository(IDbContext dbContext)
+        {
+            DbContext = dbContext;
+        }
+
+        public Repository()
+        {
+            DbContext = new StockTickerDbContext();
+        }
 
         public IQueryable<TEntity> Read(Expression<Func<TEntity, bool>> expression)
         {
