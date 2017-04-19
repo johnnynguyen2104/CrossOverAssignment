@@ -94,6 +94,8 @@
     <Compile Include="DomainModels\UserClaim.cs" />
     <Compile Include="DomainModels\UserLogin.cs" />
     <Compile Include="DomainModels\UserRoles.cs" />
+    <Compile Include="Implementations\Repository.cs" />
+    <Compile Include="Interfaces\IBaseRepository.cs" />
     <Compile Include="Interfaces\IDbContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

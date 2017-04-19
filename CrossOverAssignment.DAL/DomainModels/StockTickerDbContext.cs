@@ -48,6 +48,11 @@ namespace CrossOverAssignment.DAL.DomainModels
             return new StockTickerDbContext();
         }
 
+        public int CommitChanges()
+        {
+            return this.SaveChanges();
+        }
+
         public DbSet<TEntity> Set<TKey, TEntity>() where TKey : struct where TEntity : BaseEntity<TKey>
         {
             return this.Set<TEntity>();

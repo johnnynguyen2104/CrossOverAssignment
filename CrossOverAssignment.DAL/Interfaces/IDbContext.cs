@@ -11,6 +11,8 @@ namespace CrossOverAssignment.DAL.Interfaces
 {
     public interface IDbContext
     {
+        int CommitChanges();
+
         DbSet<TEntity> Set<TKey, TEntity>() where TEntity : BaseEntity<TKey> where TKey : struct;
 
         DbEntityEntry<TEntity> Entry<TKey, TEntity>(TEntity entity) where TEntity : BaseEntity<TKey> where TKey : struct;
