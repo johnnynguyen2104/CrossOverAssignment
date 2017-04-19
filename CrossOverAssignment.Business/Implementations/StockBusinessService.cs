@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CrossOverAssignment.Business.Dtos;
 using CrossOverAssignment.Business.Interfaces;
 using CrossOverAssignment.Business.StockWebService;
 using CrossOverAssignment.DAL.DomainModels;
@@ -79,7 +75,9 @@ namespace CrossOverAssignment.Business.Implementations
                                             StockCode = a.StockCode,
                                             CreateDateTime = a.CreateDateTime,
                                             UpdateDateTime = a.UpdateDateTime
-                                        }).ToList();
+                                        }).ToArray();
+
+            result = stockExchangeWebService.ExposeStockPrice(result);
 
             return result;
         }

@@ -27,11 +27,12 @@ namespace CrossOverAssignment.Business.StockWebService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Web.Services.WebServiceBindingAttribute(Name="StockExchangeWebServiceSoap", Namespace="http://tempuri.org/")]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BaseDtoOfInt32))]
     public partial class StockExchangeWebService : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
         private UserAuth userAuthValueField;
         
-        private System.Threading.SendOrPostCallback HelloWorldOperationCompleted;
+        private System.Threading.SendOrPostCallback ExposeStockPriceOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -81,35 +82,35 @@ namespace CrossOverAssignment.Business.StockWebService {
         }
         
         /// <remarks/>
-        public event HelloWorldCompletedEventHandler HelloWorldCompleted;
+        public event ExposeStockPriceCompletedEventHandler ExposeStockPriceCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapHeaderAttribute("UserAuthValue")]
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/HelloWorld", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string HelloWorld(string userName) {
-            object[] results = this.Invoke("HelloWorld", new object[] {
-                        userName});
-            return ((string)(results[0]));
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ExposeStockPrice", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public StockDto[] ExposeStockPrice(StockDto[] listOfStockCode) {
+            object[] results = this.Invoke("ExposeStockPrice", new object[] {
+                        listOfStockCode});
+            return ((StockDto[])(results[0]));
         }
         
         /// <remarks/>
-        public void HelloWorldAsync(string userName) {
-            this.HelloWorldAsync(userName, null);
+        public void ExposeStockPriceAsync(StockDto[] listOfStockCode) {
+            this.ExposeStockPriceAsync(listOfStockCode, null);
         }
         
         /// <remarks/>
-        public void HelloWorldAsync(string userName, object userState) {
-            if ((this.HelloWorldOperationCompleted == null)) {
-                this.HelloWorldOperationCompleted = new System.Threading.SendOrPostCallback(this.OnHelloWorldOperationCompleted);
+        public void ExposeStockPriceAsync(StockDto[] listOfStockCode, object userState) {
+            if ((this.ExposeStockPriceOperationCompleted == null)) {
+                this.ExposeStockPriceOperationCompleted = new System.Threading.SendOrPostCallback(this.OnExposeStockPriceOperationCompleted);
             }
-            this.InvokeAsync("HelloWorld", new object[] {
-                        userName}, this.HelloWorldOperationCompleted, userState);
+            this.InvokeAsync("ExposeStockPrice", new object[] {
+                        listOfStockCode}, this.ExposeStockPriceOperationCompleted, userState);
         }
         
-        private void OnHelloWorldOperationCompleted(object arg) {
-            if ((this.HelloWorldCompleted != null)) {
+        private void OnExposeStockPriceOperationCompleted(object arg) {
+            if ((this.ExposeStockPriceCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.HelloWorldCompleted(this, new HelloWorldCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.ExposeStockPriceCompleted(this, new ExposeStockPriceCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -180,27 +181,119 @@ namespace CrossOverAssignment.Business.StockWebService {
     }
     
     /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(StockDto))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class BaseDtoOfInt32 {
+        
+        private int idField;
+        
+        private System.DateTime createDateTimeField;
+        
+        private System.Nullable<System.DateTime> updateDateTimeField;
+        
+        /// <remarks/>
+        public int Id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.DateTime CreateDateTime {
+            get {
+                return this.createDateTimeField;
+            }
+            set {
+                this.createDateTimeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<System.DateTime> UpdateDateTime {
+            get {
+                return this.updateDateTimeField;
+            }
+            set {
+                this.updateDateTimeField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class StockDto : BaseDtoOfInt32 {
+        
+        private string stockCodeField;
+        
+        private string userIdField;
+        
+        private double stockPriceField;
+        
+        /// <remarks/>
+        public string StockCode {
+            get {
+                return this.stockCodeField;
+            }
+            set {
+                this.stockCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string UserId {
+            get {
+                return this.userIdField;
+            }
+            set {
+                this.userIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public double StockPrice {
+            get {
+                return this.stockPriceField;
+            }
+            set {
+                this.stockPriceField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
-    public delegate void HelloWorldCompletedEventHandler(object sender, HelloWorldCompletedEventArgs e);
+    public delegate void ExposeStockPriceCompletedEventHandler(object sender, ExposeStockPriceCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class HelloWorldCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class ExposeStockPriceCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        internal HelloWorldCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        internal ExposeStockPriceCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
         
         /// <remarks/>
-        public string Result {
+        public StockDto[] Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
+                return ((StockDto[])(this.results[0]));
             }
         }
     }
