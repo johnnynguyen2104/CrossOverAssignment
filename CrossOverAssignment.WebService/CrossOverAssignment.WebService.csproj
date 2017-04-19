@@ -72,6 +72,12 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CrossOverAssignment.Dtos\CrossOverAssignment.Dtos.csproj">
+      <Project>{a2c51bad-c039-4042-909b-1f4452f4e3e7}</Project>
+      <Name>CrossOverAssignment.Dtos</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

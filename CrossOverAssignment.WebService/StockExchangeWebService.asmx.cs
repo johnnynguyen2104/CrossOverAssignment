@@ -5,6 +5,7 @@ using System.Security.Authentication;
 using System.Web;
 using System.Web.Services;
 using System.Web.Services.Protocols;
+using CrossOverAssignment.Dtos.Models;
 using CrossOverAssignment.WebService.Security;
 
 namespace CrossOverAssignment.WebService
@@ -24,11 +25,11 @@ namespace CrossOverAssignment.WebService
 
         [WebMethod]
         [SoapHeader("Auth", Required = true)]
-        public Dictionary<string, double> ExposeStockPrice(IList<string> listOfStockCode)
+        public List<StockDto> ExposeStockPrice(List<StockDto> listOfStockCode)
         {
             if (Auth != null && (Auth != null || Auth.IsValid()))
             {
-                var result = new Dictionary<string, double>();
+                var result = new List<StockDto>();
 
                 if (listOfStockCode == null || listOfStockCode.Count == 0)
                 {
@@ -37,9 +38,9 @@ namespace CrossOverAssignment.WebService
 
                 Random randomPrice = new Random();
 
-                foreach (var stockCode in listOfStockCode)
+                foreach (var stock in listOfStockCode)
                 {
-                    result.Add(stockCode, randomPrice.Next(1, 1000));
+                    stock.StockPrice = randomPrice.Next(1, 1000);
                 }
 
                 return result;
