@@ -88,6 +88,7 @@
   <ItemGroup>
     <Compile Include="DomainModels\BaseEntity.cs" />
     <Compile Include="DomainModels\Role.cs" />
+    <Compile Include="DomainModels\Stock.cs" />
     <Compile Include="DomainModels\StockTickerDbContext.cs" />
     <Compile Include="DomainModels\User.cs" />
     <Compile Include="DomainModels\UserClaim.cs" />

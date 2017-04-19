@@ -36,6 +36,11 @@ namespace CrossOverAssignment.DAL.DomainModels
             modelBuilder.Entity<UserClaim>().ToTable("UserClaims");
             modelBuilder.Entity<UserLogin>().ToTable("UserLogins");
 
+            modelBuilder.Entity<User>()
+                .HasMany(a => a.Stocks)
+                .WithRequired(b => b.User)
+                .HasForeignKey(a => a.UserId);
+
         }
 
         public static StockTickerDbContext Create()
