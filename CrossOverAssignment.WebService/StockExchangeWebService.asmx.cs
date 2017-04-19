@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Authentication;
 using System.Web;
 using System.Web.Services;
 using System.Web.Services.Protocols;
@@ -23,23 +24,28 @@ namespace CrossOverAssignment.WebService
 
         [WebMethod]
         [SoapHeader("Auth", Required = true)]
-        public string HelloWorld(string userName)
+        public Dictionary<string, double> ExposeStockPrice(IList<string> listOfStockCode)
         {
-            if (Auth != null)
+            if (Auth != null && (Auth != null || Auth.IsValid()))
             {
-                if (Auth.IsValid())
-                {
-                    return string.Format("Hello...{0} {1} ☺ ", userName,
-                       DateTime.Now.ToString("tt") == "AM" ? " good morning " : " good evening ");
-                }
-                   
+                var result = new Dictionary<string, double>();
 
-                return "Error in authentication";
+                if (listOfStockCode == null || listOfStockCode.Count == 0)
+                {
+                    return result;
+                }
+
+                Random randomPrice = new Random();
+
+                foreach (var stockCode in listOfStockCode)
+                {
+                    result.Add(stockCode, randomPrice.Next(1, 1000));
+                }
+
+                return result;
             }
-            else
-            {
-                return "Error in authentication";
-            }
+
+            throw new AuthenticationException("Error in authentication");
         }
     }
 }
