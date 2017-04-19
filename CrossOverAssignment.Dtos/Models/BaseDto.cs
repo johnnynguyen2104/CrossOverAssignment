@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace CrossOverAssignment.Business.Dtos
+
+namespace CrossOverAssignment.Dtos.Models
 {
     public class BaseDto<TKey> where TKey : struct
     {
