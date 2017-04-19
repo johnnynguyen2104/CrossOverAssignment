@@ -30,11 +30,11 @@ namespace CrossOverAssignment.DAL.DomainModels
         {
 
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<User>().ToTable("Users", "dbo");
-            modelBuilder.Entity<Role>().ToTable("Roles", "dbo");
-            modelBuilder.Entity<UserRoles>().ToTable("UserRoles", "dbo");
-            modelBuilder.Entity<UserClaim>().ToTable("UserClaims", "dbo");
-            modelBuilder.Entity<UserLogin>().ToTable("UserLogins", "dbo");
+            modelBuilder.Entity<User>().ToTable("Users");
+            modelBuilder.Entity<Role>().ToTable("Roles");
+            modelBuilder.Entity<UserRoles>().ToTable("UserRoles");
+            modelBuilder.Entity<UserClaim>().ToTable("UserClaims");
+            modelBuilder.Entity<UserLogin>().ToTable("UserLogins");
 
         }
 
