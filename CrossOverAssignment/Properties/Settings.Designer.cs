@@ -22,15 +22,5 @@ namespace CrossOverAssignment.Properties {
                 return defaultInstance;
             }
         }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:49769/StockExchange.asmx")]
-        public string CrossOverAssignment_StockExchangeService_StockExchange {
-            get {
-                return ((string)(this["CrossOverAssignment_StockExchangeService_StockExchange"]));
-            }
-        }
     }
 }

@@ -15,3 +15,6 @@
 /CrossOverAssignment.Business/bin
 /packages
 /CrossOverAssignment/App_Data
+/CrossOverAssignment/obj/Release
+/CrossOverAssignment.WebService/obj/Release
+/CrossOverAssignment.WebService/bin
