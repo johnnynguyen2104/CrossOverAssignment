@@ -253,7 +253,7 @@
       <Name>CrossOverAssignment.Business</Name>
     </ProjectReference>
     <ProjectReference Include="..\CrossOverAssignment.Dtos\CrossOverAssignment.Dtos.csproj">
-      <Project>{a2c51bad-c039-4042-909b-1f4452f4e3e7}</Project>
+      <Project>{5b028e8d-ee15-44af-9048-48af457a4165}</Project>
       <Name>CrossOverAssignment.Dtos</Name>
     </ProjectReference>
     <ProjectReference Include="..\CrossOverAssignment.Security\CrossOverAssignment.Security.csproj">
