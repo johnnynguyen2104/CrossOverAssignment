@@ -5,8 +5,8 @@ using System.Security.Authentication;
 using System.Web;
 using System.Web.Services;
 using System.Web.Services.Protocols;
-using CrossOverAssignment.Dtos.Models;
 using CrossOverAssignment.WebService.Security;
+using CrossOverAssignment.WebService.WebServiceDtos;
 
 namespace CrossOverAssignment.WebService
 {
@@ -25,15 +25,14 @@ namespace CrossOverAssignment.WebService
 
         [WebMethod]
         [SoapHeader("Auth", Required = true)]
-        public List<StockDto> ExposeStockPrice(List<StockDto> listOfStockCode)
+        public List<StockWebDtos> ExposeStockPrice(List<StockWebDtos> listOfStockCode)
         {
             if (Auth != null && (Auth != null || Auth.IsValid()))
             {
-                var result = new List<StockDto>();
 
                 if (listOfStockCode == null || listOfStockCode.Count == 0)
                 {
-                    return result;
+                    return listOfStockCode;
                 }
 
                 Random randomPrice = new Random();
@@ -43,7 +42,7 @@ namespace CrossOverAssignment.WebService
                     stock.StockPrice = randomPrice.Next(1, 1000);
                 }
 
-                return result;
+                return listOfStockCode;
             }
 
             throw new AuthenticationException("Error in authentication");

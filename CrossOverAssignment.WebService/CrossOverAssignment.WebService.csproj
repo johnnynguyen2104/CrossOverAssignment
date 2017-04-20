@@ -63,6 +63,8 @@
       <DependentUpon>StockExchangeWebService.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="WebServiceDtos\BaseDto.cs" />
+    <Compile Include="WebServiceDtos\StockWebDtos.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Web.Debug.config">
@@ -71,12 +73,6 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CrossOverAssignment.Dtos\CrossOverAssignment.Dtos.csproj">
-      <Project>{5b028e8d-ee15-44af-9048-48af457a4165}</Project>
-      <Name>CrossOverAssignment.Dtos</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
