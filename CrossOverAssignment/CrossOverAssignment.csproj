@@ -710,6 +710,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="images\blur.svg" />
+    <Content Include="images\defaultImage.png" />
     <Content Include="images\landing\ss.jpg" />
     <Content Include="images\landing\ss.png" />
     <Content Include="images\profile.png" />
@@ -765,7 +766,7 @@
     <Content Include="Views\Account\SendCode.cshtml" />
     <Content Include="Views\Account\VerifyCode.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_LoginLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -810,7 +811,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>49518</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:49518/CrossOver</IISUrl>
+          <IISUrl>http://localhost:49518/</IISUrl>
           <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
           <IISAppRootUrl>http://localhost:49518/</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

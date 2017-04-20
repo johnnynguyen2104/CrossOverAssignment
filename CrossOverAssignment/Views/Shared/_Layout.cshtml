@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>Flat Admin V.3 - Free flat-design bootstrap administrator templates</title>
+    <title>Stock Exchange</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -14,13 +14,14 @@
     <link rel="stylesheet" type="text/css" href="~/Content/template/theme/red.css">
     <link rel="stylesheet" type="text/css" href="~/Content/template/theme/yellow.css">
 
+    @Scripts.Render("~/bundles/jquery")
 </head>
 <body>
     <div class="app app-default">
 
         <aside class="app-sidebar" id="sidebar">
             <div class="sidebar-header">
-                <a class="sidebar-brand" href="#"><span class="highlight">Flat v3</span> Admin</a>
+                <a class="sidebar-brand" href="#"><span class="highlight">Stock</span> Exchange</a>
                 <button type="button" class="sidebar-toggle">
                     <i class="fa fa-times"></i>
                 </button>
@@ -123,11 +124,11 @@
                                 </button>
                             </li>
                             <li class="logo">
-                                <a class="navbar-brand" href="#"><span class="highlight">Flat v3</span> Admin</a>
+                                <a class="navbar-brand" href="#"><span class="highlight"></span> Admin</a>
                             </li>
                             <li>
                                 <button type="button" class="navbar-toggle">
-                                    <img class="profile-img" src="/images/profile.png">
+                                    <img class="profile-img" src="/images/defaultImage.png">
                                 </button>
                             </li>
                         </ul>
@@ -246,7 +247,7 @@
                             </li>
                             <li class="dropdown profile">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <img class="profile-img" src="/images/profile.png">
+                                    <img class="profile-img" src="/images/defaultImage.png">
                                     <div class="title">Profile</div>
                                 </a>
                                 <div class="dropdown-menu">
@@ -271,7 +272,7 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
+                                            <a href="@Url.Action("LogOff", "Account")">
                                                 Logout
                                             </a>
                                         </li>
@@ -282,13 +283,7 @@
                     </div>
                 </div>
             </nav>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="card">
-                        @RenderBody()
-                    </div>
-                </div>
-            </div>
+            @RenderBody()
             <footer class="app-footer">
                 <div class="row">
                     <div class="col-xs-12">
@@ -303,7 +298,8 @@
     </div>
 
     <script type="text/javascript" src="~/Scripts/template/vendor.js"></script>
-    <script type="text/javascript" src="~/Scripts/template/app.js"></script><div class="autocomplete-suggestions" style="position: absolute; display: none; max-height: 300px; z-index: 9999;"></div>
+    <script type="text/javascript" src="~/Scripts/template/app.js"></script>
+    <div class="autocomplete-suggestions" style="position: absolute; display: none; max-height: 300px; z-index: 9999;"></div>
 
     
 </body>

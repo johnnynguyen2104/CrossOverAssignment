@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="~/Content/template/vendor.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/template/flat-admin.css">
+
+    <!-- Theme -->
+    <link rel="stylesheet" type="text/css" href="~/Content/template/theme/blue-sky.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/template/theme/blue.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/template/theme/red.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/template/theme/yellow.css">
+
+    @Scripts.Render("~/bundles/jquery")
+</head>
+<body>
+    <div class="app app-default">
+        <div class="app-container app-login">
+            <div class="flex-center">
+                <div class="app-header"></div>
+                @RenderBody()
+                <div class="app-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="~/Scripts/template/vendor.js"></script>
+    <script type="text/javascript" src="~/Scripts/template/app.js"></script>
+</body>
+</html>

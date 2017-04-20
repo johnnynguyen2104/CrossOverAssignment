@@ -21,3 +21,5 @@
 /CrossOverAssignment.Dtos/bin
 /CrossOverAssignment.Dtos/obj/Release
 /.vs
+/CrossOverAssignment.WebService/obj/Debug
+/CrossOverAssignment.Dtos/obj/Debug
