@@ -25,8 +25,8 @@ namespace CrossOverAssignment.Business.Implementations
             {
                 UserAuthValue = new UserAuth()
                 {
-                    UserName = "",
-                    Password = ""
+                    UserName = "CrossOver",
+                    Password = "CrossOver"
                 }
             };
 
@@ -80,6 +80,13 @@ namespace CrossOverAssignment.Business.Implementations
             result = stockExchangeWebService.ExposeStockPrice(result);
 
             return result;
+        }
+
+        public IList<StockDto> ReadNewPrice(IList<StockDto> stock)
+        {
+            stock = stockExchangeWebService.ExposeStockPrice(stock.ToArray());
+
+            return stock;
         }
     }
 }

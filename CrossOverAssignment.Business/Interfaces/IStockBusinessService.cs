@@ -13,5 +13,7 @@ namespace CrossOverAssignment.Business.Interfaces
         int Delete(IList<int> ids);
 
         IList<StockDto> ReadStocksByUser(string userId);
+
+        IList<StockDto> ReadNewPrice(IList<StockDto> stock);
     }
 }
