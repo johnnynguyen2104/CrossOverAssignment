@@ -1,17 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using CrossOverAssignment.Business.Implementations;
+using CrossOverAssignment.Business.Interfaces;
+using CrossOverAssignment.Dtos.Models;
+using Microsoft.AspNet.Identity;
 
 namespace CrossOverAssignment.Controllers
 {
     [Authorize]
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        private readonly IStockBusinessService stockBusinessService;
+        private readonly int ItemPerPage = int.Parse(ConfigurationManager.AppSettings["ItemPerPage"]);
+
+        public HomeController()
         {
-            return View();
+            stockBusinessService = new StockBusinessService();
+        } 
+
+        public ActionResult Index(int currentIndex = 1)
+        {
+            int totalItem = 0;
+            var result = new PagingDto<StockDto>()
+            {
+                Items = stockBusinessService.ReadStocksByUser(User.Identity.GetUserId(), out totalItem, currentIndex, ItemPerPage),
+                //Pager = 
+            };
+            return View(result);
         }
 
         public ActionResult About()

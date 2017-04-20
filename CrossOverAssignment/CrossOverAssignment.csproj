@@ -750,8 +750,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
@@ -783,10 +781,6 @@
     <ProjectReference Include="..\CrossOverAssignment.Business\CrossOverAssignment.Business.csproj">
       <Project>{1a759dad-c074-4e36-b2c8-b082bc5e9a45}</Project>
       <Name>CrossOverAssignment.Business</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CrossOverAssignment.Dtos\CrossOverAssignment.Dtos.csproj">
-      <Project>{5b028e8d-ee15-44af-9048-48af457a4165}</Project>
-      <Name>CrossOverAssignment.Dtos</Name>
     </ProjectReference>
     <ProjectReference Include="..\CrossOverAssignment.Security\CrossOverAssignment.Security.csproj">
       <Project>{8945b8de-3553-48d4-b12b-0fe2ed0dc3d0}</Project>
