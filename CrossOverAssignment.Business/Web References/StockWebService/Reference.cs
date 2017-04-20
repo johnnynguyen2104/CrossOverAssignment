@@ -87,19 +87,19 @@ namespace CrossOverAssignment.Business.StockWebService {
         /// <remarks/>
         [System.Web.Services.Protocols.SoapHeaderAttribute("UserAuthValue")]
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ExposeStockPrice", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public StockDto[] ExposeStockPrice(StockDto[] listOfStockCode) {
+        public StockWebDtos[] ExposeStockPrice(StockWebDtos[] listOfStockCode) {
             object[] results = this.Invoke("ExposeStockPrice", new object[] {
                         listOfStockCode});
-            return ((StockDto[])(results[0]));
+            return ((StockWebDtos[])(results[0]));
         }
         
         /// <remarks/>
-        public void ExposeStockPriceAsync(StockDto[] listOfStockCode) {
+        public void ExposeStockPriceAsync(StockWebDtos[] listOfStockCode) {
             this.ExposeStockPriceAsync(listOfStockCode, null);
         }
         
         /// <remarks/>
-        public void ExposeStockPriceAsync(StockDto[] listOfStockCode, object userState) {
+        public void ExposeStockPriceAsync(StockWebDtos[] listOfStockCode, object userState) {
             if ((this.ExposeStockPriceOperationCompleted == null)) {
                 this.ExposeStockPriceOperationCompleted = new System.Threading.SendOrPostCallback(this.OnExposeStockPriceOperationCompleted);
             }
@@ -181,7 +181,7 @@ namespace CrossOverAssignment.Business.StockWebService {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(StockDto))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(StockWebDtos))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -233,13 +233,13 @@ namespace CrossOverAssignment.Business.StockWebService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class StockDto : BaseDtoOfInt32 {
+    public partial class StockWebDtos : BaseDtoOfInt32 {
         
         private string stockCodeField;
         
         private string userIdField;
         
-        private double stockPriceField;
+        private int stockPriceField;
         
         /// <remarks/>
         public string StockCode {
@@ -262,7 +262,7 @@ namespace CrossOverAssignment.Business.StockWebService {
         }
         
         /// <remarks/>
-        public double StockPrice {
+        public int StockPrice {
             get {
                 return this.stockPriceField;
             }
@@ -290,10 +290,10 @@ namespace CrossOverAssignment.Business.StockWebService {
         }
         
         /// <remarks/>
-        public StockDto[] Result {
+        public StockWebDtos[] Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((StockDto[])(this.results[0]));
+                return ((StockWebDtos[])(this.results[0]));
             }
         }
     }

@@ -5,6 +5,9 @@ using CrossOverAssignment.Business.StockWebService;
 using CrossOverAssignment.DAL.DomainModels;
 using CrossOverAssignment.DAL.Implementations;
 using CrossOverAssignment.DAL.Interfaces;
+using StockDto = CrossOverAssignment.Business.Dtos.StockDto;
+using CrossOverAssignment.Business.Helpers;
+
 
 namespace CrossOverAssignment.Business.Implementations
 {
@@ -65,26 +68,34 @@ namespace CrossOverAssignment.Business.Implementations
             return stockRepository.CommitChanges();
         }
 
-        public IList<StockDto> ReadStocksByUser(string userId)
+        public IList<StockDto> ReadStocksByUser(string userId, out int totalItem, int currentIndex = 0, int itemPerPage = 0)
         {
-            var result = stockRepository.Read(a => a.UserId == userId)
-                                        .Select(a => new StockDto()
-                                        {
-                                            UserId = a.UserId,
-                                            Id = a.Id,
-                                            StockCode = a.StockCode,
-                                            CreateDateTime = a.CreateDateTime,
-                                            UpdateDateTime = a.UpdateDateTime
-                                        }).ToArray();
+            var stocks = stockRepository.Read(a => a.UserId == userId)
+                .Select(a => new StockWebDtos()
+                {
+                    UserId = a.UserId,
+                    Id = a.Id,
+                    StockCode = a.StockCode,
+                    CreateDateTime = a.CreateDateTime,
+                    UpdateDateTime = a.UpdateDateTime
 
-            result = stockExchangeWebService.ExposeStockPrice(result);
+                }).OrderByDescending(a => a.CreateDateTime)
+                .Skip((currentIndex - 1) * itemPerPage)
+                .Take(itemPerPage)
+                .ToArray();
+
+            //return total number for paging
+            totalItem = stockRepository.Read(a => a.UserId == userId).Count();
+
+            //Map back from web service dto and pass back to web
+            var result = stockExchangeWebService.ExposeStockPrice(stocks).MapStockWebServiceToDto();
 
             return result;
         }
 
         public IList<StockDto> ReadNewPrice(IList<StockDto> stock)
         {
-            stock = stockExchangeWebService.ExposeStockPrice(stock.ToArray());
+            stock = stockExchangeWebService.ExposeStockPrice(stock.MapStockDtoToStockWebService()).MapStockWebServiceToDto().ToList();
 
             return stock;
         }

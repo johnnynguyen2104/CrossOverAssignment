@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using CrossOverAssignment.Business.StockWebService;
+using CrossOverAssignment.Business.Dtos;
 
 namespace CrossOverAssignment.Business.Interfaces
 {
@@ -12,7 +12,7 @@ namespace CrossOverAssignment.Business.Interfaces
 
         int Delete(IList<int> ids);
 
-        IList<StockDto> ReadStocksByUser(string userId);
+        IList<StockDto> ReadStocksByUser(string userId, out int totalItem, int currentIndex = 0, int itemPerPage = 0);
 
         IList<StockDto> ReadNewPrice(IList<StockDto> stock);
     }

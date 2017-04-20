@@ -43,6 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dtos\BaseDto.cs" />
+    <Compile Include="Dtos\PagingDto.cs" />
+    <Compile Include="Dtos\StockDto.cs" />
+    <Compile Include="Helpers\Mapping.cs" />
+    <Compile Include="Helpers\Pager.cs" />
     <Compile Include="Implementations\StockBusinessService.cs" />
     <Compile Include="Interfaces\IStockBusinessService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -73,10 +78,10 @@
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Web References\StockWebService\StockDto.datasource">
+    <None Include="Web References\StockWebService\StockExchangeWebService.wsdl" />
+    <None Include="Web References\StockWebService\StockWebDtos.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Web References\StockWebService\StockExchangeWebService.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <WebReferences Include="Web References\" />
