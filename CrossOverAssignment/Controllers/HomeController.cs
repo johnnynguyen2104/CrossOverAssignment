@@ -4,9 +4,10 @@ using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using CrossOverAssignment.Business.Dtos;
+using CrossOverAssignment.Business.Helpers;
 using CrossOverAssignment.Business.Implementations;
 using CrossOverAssignment.Business.Interfaces;
-using CrossOverAssignment.Dtos.Models;
 using Microsoft.AspNet.Identity;
 
 namespace CrossOverAssignment.Controllers
@@ -22,14 +23,15 @@ namespace CrossOverAssignment.Controllers
             stockBusinessService = new StockBusinessService();
         } 
 
-        public ActionResult Index(int currentIndex = 1)
+        public ActionResult Index(int page = 1)
         {
             int totalItem = 0;
             var result = new PagingDto<StockDto>()
             {
-                Items = stockBusinessService.ReadStocksByUser(User.Identity.GetUserId(), out totalItem, currentIndex, ItemPerPage),
-                //Pager = 
+                Items = stockBusinessService.ReadStocksByUser(User.Identity.GetUserId(), out totalItem, page, ItemPerPage),
+                Pager = new Pager(totalItem, page, ItemPerPage)
             };
+
             return View(result);
         }
 

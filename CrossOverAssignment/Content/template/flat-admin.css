@@ -4488,29 +4488,6 @@ input ::-webkit-input-placeholder {
 .progress-bar-danger {
   background-color: #E74C3C; }
 
-.pagination {
-  font-size: 14px;
-  margin: 0; }
-  .pagination > li > a, .pagination > li > span {
-    color: #444;
-    border-radius: 2px;
-    border-color: #dfe6e8;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-    margin-left: 2px; }
-    .pagination > li > a:hover, .pagination > li > a:focus, .pagination > li > span:hover, .pagination > li > span:focus {
-      color: #444;
-      border-radius: 2px;
-      border-color: #dfe6e8;
-      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-      margin-left: 2px; }
-  .pagination > li.active > a, .pagination > li.active > span {
-    border: 0;
-    border-bottom: 2px solid #18aa4a;
-    background-color: #29c75f; }
-    .pagination > li.active > a:hover, .pagination > li.active > a:focus, .pagination > li.active > span:hover, .pagination > li.active > span:focus {
-      border: 0;
-      border-bottom: 2px solid #18aa4a;
-      background-color: #29c75f; }
 
 table.table > tbody > tr td, table.table > tbody > tr th, table.table > thead > tr td, table.table > thead > tr th {
   font-size: 14px;
@@ -5779,3 +5756,7 @@ footer.app-footer {
     font-size: 0.9em; }
   .media.social-post .media-body .media-comment input {
     padding: 7.5px 15px; }
+
+  .margin-left-10 {
+      margin-left: 10px;
+  }
