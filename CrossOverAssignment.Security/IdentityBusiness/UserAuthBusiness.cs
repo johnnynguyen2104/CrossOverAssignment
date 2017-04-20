@@ -24,13 +24,6 @@ namespace CrossOverAssignment.Security.IdentityBusiness
             SignInManager = signInManager;
         }
 
-        //public UserAuthBusiness()
-        //{
-        //    var context = new UserStore<User>();
-        //    UserManager = new IdentityConfig.ApplicationUserManager(context);
-        //    SignInManager = new IdentityConfig.ApplicationSignInManager(new IdentityConfig.ApplicationUserManager(context));
-        //}
-
         public Task<SignInStatus> PasswordSignInAsync(string userName, string password, bool isPersistent, bool shouldLockout)
         {
             var taskResult = SignInManager.PasswordSignInAsync(userName, password, isPersistent, shouldLockout);
@@ -51,12 +44,15 @@ namespace CrossOverAssignment.Security.IdentityBusiness
 
         public Task<IdentityResult> CreateAsync(UserInformation user)
         {
-            var result = UserManager.CreateAsync(new User()
+            var userAuth = new User()
             {
                 UserName = user.UserName,
                 Email = user.Email
-            }, user.Password);
+            };
 
+            var result = UserManager.CreateAsync(userAuth, user.Password);
+
+            user.Id = userAuth.Id;
             return result;
         }
 
@@ -64,6 +60,7 @@ namespace CrossOverAssignment.Security.IdentityBusiness
         {
             var taskResult = SignInManager.SignInAsync(new User()
             {
+                Id = user.Id,
                 UserName = user.UserName,
                 Email = user.Email,
             }, isPersistent, rememberBrowser);
