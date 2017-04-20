@@ -13,10 +13,7 @@ namespace CrossOverAssignment.WebService.Security
 
         public bool IsValid()
         {
-            //Write the logic to Check the User Details From DataBase  
-            //i can chek with some hardcode details UserName=Nitin and Password=Pandit  
-            return UserName == "Nitin" && Password == "Pandit";
-            //it'll check the details and will return true or false   
+            return UserName == "CrossOver" && Password == "CrossOver"; 
         }
     }
 }
